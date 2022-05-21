@@ -1,0 +1,240 @@
+
+/** style mobile first **/
+
+/* 
+  On définit tout le style qui va s'appliquer quelle que soit la taille de l'écran
+  + le style quand on est sur écran mobile < 640px
+*/
+
+.container {
+    padding: 0.5rem;
+  }
+  
+  .header {
+    background-color: #ededed;
+    padding: 1.2rem;
+  }
+  
+  .logo__title {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filters__task--completion.buttons {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filters__task--archived {
+    margin-top: 1rem;
+  }
+  
+  .task {
+    margin: 1.5rem 0 0 0;
+  }
+  
+  .task,
+  .task__button.button,
+  .task__title-field {
+    font-size: 0.8rem;
+  }
+  
+  .task__content {
+    padding: 0.5rem;
+    border: solid 1px #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .task__title {
+    font-weight: 400;
+    width: 35%;
+  }
+  
+  .task__title-field {
+    display: none;
+  }
+  
+  .task__category {
+    color: #b1b1b1;
+  }
+  
+  .task__buttons {
+    margin-left: 1rem;
+  }
+  
+  .progress-bar {
+    height: 0.4rem;
+    background-color: #ededed;
+  }
+  
+  .progress-bar__level {
+    height: 0.4rem;
+    background-color: #3298dc;
+  }
+  
+  .task__button--desarchive,
+  .task__button--incomplete,
+  .task__button--delete {
+    display: none;
+  }
+  
+  .task--complete .task__title-label {
+    text-decoration: line-through;
+  }
+  
+  .task--complete .task__button--validate {
+    display: none;
+  }
+  
+  .task--complete .task__button--incomplete {
+    display: inline-block;
+  }
+  
+  .task--edit .task__title-label {
+    display: none;
+  }
+  
+  .task--edit .task__title-field {
+    display: block;
+    width: 90%;
+  }
+  
+  .task--archive .task__content {
+    background-color: #f7f7f7;
+    border: none;
+  }
+  
+  .task--archive .task__title {
+    color: #b1b1b1;
+  }
+  
+  .task--archive .progress-bar__level {
+    background-color: #b1b1b1;
+  }
+  
+  .task--archive .task__button--validate,
+  .task--archive .task__button--modify,
+  .task--archive .task__button--archive {
+    display: none;
+  }
+  
+  .task--archive .task__button--desarchive,
+  .task--archive .task__button--delete {
+    display: inline-block;
+  }
+  
+  .task--add .task__content {
+    border-color: #78b6df;
+  }
+  
+  .task--add .task__title {
+    width: 100%;
+  }
+  
+  .task--add .task__category {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .task--add .task__title-field {
+    display: block;
+    width: 90%;
+  }
+  
+  .task--add .task__buttons {
+    margin: 0.5rem 0 0 0;
+  }
+  
+  .task--add .task__button {
+    font-size: 1rem;
+  }
+  
+
+/*
+ici on ne définit QUE ce qui change quand l'écran s'agrandit au dessus de 640px (inférieur à 800px)
+*/
+  @media screen and (min-width: 640px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .task,
+    .task__button.button,
+    .task__title-field {
+      font-size: 0.9rem;
+    }
+  
+    .task__content {
+      padding: 1rem;
+    }
+  
+    .task__title {
+      font-size: 1rem;
+    }
+  
+    .task--add .task__title {
+      width: 50%;
+    }
+  
+    .task--add .task__category {
+      margin: 0;
+      width: 30%;
+    }
+  
+    .task--add .task__buttons {
+      width: 20%;
+      text-align: right;
+      margin: 0;
+    }
+  }
+  
+  /*
+  On ne définit ici QUE ce qui change quand l'écran est plus large que 800px
+  */
+  @media screen and (min-width: 800px) {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .logo__title {
+      margin-bottom: 0;
+    }
+    
+    
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .filters__task--completion,
+    .filters__task--category {
+      margin-right: 1rem;
+    }
+    
+    .filters__task--archived {
+      margin-top: 0;
+    }
+  
+    .filters__task--completion {
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
+  
+    .task,
+    .task__button.button,
+    .task__title-field.input {
+      font-size: 1rem;
+    }
+  
+    .task__title {
+      width: 50%;
+    }
+  
+    .task__title-field {
+      width: 60%;
+    }
+  }

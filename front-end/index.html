@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodoList</title>
+  <link rel="stylesheet" href="assets/css/font-awesome.css" />
+  <!-- L'intégration repose en partie sur le framework CSS Bulma :
+    - Bulma propose uniquement des styles CSS
+    - Bulma ne gère pas les interactions Javascript contrairement à Bootstrap
+    - Si on veut gérer des interactions, il faudra donc les écrire nous même en Javascript
+    - Documentation : https://bulma.io/documentation/
+  -->
+  <link rel="stylesheet" href="assets/css/bulma.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <a href=".">
+          <h1 class="logo__title title is-3">TodoList</h1>
+        </a>
+      </div>
+      <div class="filters">
+        <div class="filters__task filters__task--completion buttons are-small has-addons">
+          <button class="filters__choice button filters__task--all">Toutes</button>
+          <button class="filters__choice button filters__task--complete">Complètes</button>
+          <button class="filters__choice button filters__task--uncomplete">Incomplètes</button>
+        </div>
+        <div class="filters__task filters__task--category select is-small">
+          <select class="filters__choice">
+            <option>Toutes les catégories</option>
+            <!-- Génération dynamique de la liste des catégories  -->
+          </select>
+        </div>
+        <div class="filters__task filters__task--archived">
+          <a class="filters__choice" href="#">Voir les archives</a>
+        </div>
+      </div>
+    </header>
+    <main>
+
+      <!--   intégration du formulaire d'ajout  -->
+      <div class="task task--add">
+        <form method="POST">
+          <div class="task__content">
+            <div class="task__title">
+              <p class="task__title-label"></p>
+              <input class="task__title-field input" type="text" placeholder="Titre de la tâche" name="title" />
+            </div>
+            <div class="task__category">
+              <div class="select is-small">
+                <select>
+                  <option value="0">Choisir une catégorie</option>
+                  <!-- Génération dynamique de la liste des catégories  -->
+                </select>
+              </div>
+            </div>
+            <div class="task__buttons">
+              <button class="task__button task__button--add button is-info">
+                <span class="icon is-small">
+                  <i class="fa fa-plus"></i>
+                </span>
+                <span>Ajouter</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- liste des taches  -->
+      <div class="tasks">
+
+        <!-- Génération dynamique de la liste des taches  -->
+
+      </div>
+    </main>
+  </div>
+
+  <template id="newTaskTpl">
+    <div class="task task--todo" data-category="Courses(à changer)">
+      <div class="task__content">
+        <div class="task__title">
+          <p class="task__title-label"></p>
+          <input class="task__title-field input" type="text" value="" placeholder="Titre de la tâche" name="title" />
+        </div>
+        <div class="task__category">
+          <p>Courses(à changer)</p>
+        </div>
+        <div class="task__buttons">
+          <button class="task__button task__button--incomplete button is-success is-small">
+            <span class="icon is-small">
+              <i class="fa fa-step-backward"></i>
+            </span>
+          </button>
+          <button class="task__button task__button--desarchive button is-success is-small">
+            <span class="icon is-small">
+              <i class="fa fa-undo"></i>
+            </span>
+          </button>
+          <button class="task__button task__button--validate button is-success is-small">
+            <span class="icon is-small">
+              <i class="fa fa-check-square-o"></i>
+            </span>
+          </button>
+          <button class="task__button task__button--modify button is-warning is-small">
+            <span class="icon is-small">
+              <i class="fa fa-pencil-square-o"></i>
+            </span>
+          </button>
+          <button class="task__button task__button--archive button is-danger is-small">
+            <span class="icon is-small">
+              <i class="fa fa-archive"></i>
+            </span>
+          </button>
+          <button class="task__button task__button--delete button is-danger is-small">
+            <span class="icon is-small">
+              <i class="fa fa-trash"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-bar__level" style="width:0%"></div>
+      </div>
+    </div>
+  </template>
+
+  <script src="assets/js/components/filters.js"></script>
+  <script src="assets/js/components/categoriesList.js"></script>
+  <script src="assets/js/components/task.js"></script>
+  <script src="assets/js/components/taskList.js"></script>
+  <script src="assets/js/components/newTaskForm.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
